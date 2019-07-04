@@ -29,8 +29,10 @@ Route::get('/about', function (){
 
 Route::resource('posts','PostsController');
 Route::resource('transaction','TransactionController');
+Route::resource('order','OrderController');
 
 Route::get('/cart','TransactionController@index');
+Route::get('/order','OrderController@index');
 
 Route::get('/','PagesController@index');
 Route::get('/about','PagesController@about');

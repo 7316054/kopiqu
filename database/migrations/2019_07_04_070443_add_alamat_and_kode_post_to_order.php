@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class AddStatusToPosts extends Migration
+class AddAlamatAndKodePostToOrder extends Migration
 {
     /**
      * Run the migrations.
@@ -13,9 +13,10 @@ class AddStatusToPosts extends Migration
      */
     public function up()
     {
-        Schema::table('posts', function (Blueprint $table) {
+        Schema::table('order', function (Blueprint $table) {
             //
-            $table->boolean('status')->default(0);
+            $table->String('alamat');
+            $table->String('kode_pos');
         });
     }
 
@@ -26,8 +27,11 @@ class AddStatusToPosts extends Migration
      */
     public function down()
     {
-        Schema::table('posts', function (Blueprint $table) {
-            $table->dropColumn('status');
+        Schema::table('order', function (Blueprint $table) {
+            //  
+            $table->dropColumn('alamat');
+            $table->dropColumn('kode_pos');
+
         });
     }
 }

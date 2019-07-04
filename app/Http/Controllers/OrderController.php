@@ -6,14 +6,16 @@ use Illuminate\Http\Request;
 use App\post;
 use App\transaction;
 use App\User;
+use App\order;
 use DB;
 
-class TransactionController extends Controller
+class OrderController extends Controller
 {
     public function __construct()
     {
         $this->middleware('auth');
     }
+
     /**
      * Display a listing of the resource.
      *
@@ -23,7 +25,7 @@ class TransactionController extends Controller
     {
         $user_id=auth()->user()->id;
         $products=DB::table('transaction')->join('posts','transaction.id_produk','=','posts.id')->select('transaction.id','id_produk','jumlah','name','description','price','weight','cover_image','transaction.created_at')->where('id_user','=',$user_id)->where('status','=','0')->orderBy('created_at','asc')->paginate(3);
-        return view('transaction.cart')->with('products',$products);
+        return view('order.checkout')->with('products',$products);
     }
 
     /**
@@ -44,17 +46,32 @@ class TransactionController extends Controller
      */
     public function store(Request $request)
     {
-        
-        $this->validate($request,[
-            'jumlah'=>'required',
-        ]);
-        $transaction=new transaction;
-        $transaction->jumlah=$request->input('jumlah');
-        $transaction->id_user=auth()->user()->id;
-        $transaction->id_produk=$request->input('id_produk');
-        $transaction->save();
 
-        return redirect('/')->with('success','Produk ditambahkan ke dalam cart');
+
+        $user_id=auth()->user()->id;
+
+        $this->validate($request,[
+            'kode_pos'=>'required',
+            'alamat'=>'required',
+        ]);
+
+        $order=new order;
+        $order->kode_pos=$request->input('kode_pos');
+        $order->alamat=$request->input('alamat');
+        $order->order_code=$request->input('order_code');
+        $order->status=$request->input('status');
+        $order->total=$request->input('total');
+        $order->unique_number=$request->input('unique_number');
+        $order->id_user=$user_id;
+        $order->save();
+
+        $temp=unserialize($request->input('transaction_id'));
+        for($i=0;$i<sizeof($temp);$i++){
+            DB::table('transaction')->where('id',$temp[$i])->update(['status'=>-1]);
+        }
+
+
+        return redirect('/')->with('success','Pesanan Berhasil, mohon segera lunasi pembayaran');
     }
 
     /**
@@ -65,8 +82,7 @@ class TransactionController extends Controller
      */
     public function show($id)
     {
-        $posts=post::find($id);
-        return view('Transaction.show')->with('posts',$posts);
+        //
     }
 
     /**
@@ -90,9 +106,6 @@ class TransactionController extends Controller
     public function update(Request $request, $id)
     {
         //
-        $transaction= transaction::find($id);
-        $transaction->status=1;
-        $transaction->save;
     }
 
     /**
@@ -103,8 +116,6 @@ class TransactionController extends Controller
      */
     public function destroy($id)
     {
-        $transaction=transaction::find($id);
-        $transaction->delete();
-        return redirect('/cart')->with('success','Produk berhasil dihapus dari cart');
+        //
     }
 }

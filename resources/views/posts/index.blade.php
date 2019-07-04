@@ -49,6 +49,8 @@
             </div>
             
         @else
-                <p>No Post Found</p>
+        <div class="alert alert-success" role="alert">
+            <h2>Tidak ada Produk </h1>
+        </div>
         @endif
 @endsection

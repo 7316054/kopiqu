@@ -89,12 +89,11 @@
                            
                     </div>
                     
+                    <div class='d-flex justify-content-center '>
+                    <a class=" btn-success p-3" style="color:white" href="/order">checkout </a>
+                    </div >
+                   
                        
-                     {!! Form::open(['action'=>['TransactionController@index'],'method'=>'POST','class'=>'d-flex justify-content-center'])!!}
-                        {{Form::hidden('','')}}
-                        {{Form::submit('Check out',['class'=>'btn btn-success  mt-auto'])}}
-                    {!! Form::close()!!}
-                    
                   
 
                
@@ -105,6 +104,9 @@
                </div>
             
         @else
-                <p>No Post Found</p>
+        
+        <div class="alert alert-success" role="alert">
+                <h2>Empty Cart </h1>
+        </div>
         @endif
 @endsection
