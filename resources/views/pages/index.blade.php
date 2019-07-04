@@ -21,7 +21,7 @@
                             <h3 class="card-title">{{$post->name}}</h3>
                             <p class="card-text">{{$post->description}}</p>
                             <h5 class="card-text">Price : {{$post->price}}</h5>
-                            <a href="/transaction/{{$post->id}}" class="btn btn-primary  mt-auto">Buy</a>
+                            <a href="/transaction/{{$post->id}}" class="btn btn-primary  mt-auto">Add to cart</a>
 
                     </div>
                   </div>

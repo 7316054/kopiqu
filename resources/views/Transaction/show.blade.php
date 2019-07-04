@@ -8,7 +8,7 @@
     </div>
     <hr>
 
-    <h5 class="card-text">Price : {{$posts->price}}</h5>
+    <h5 class="card-text">Price : {{$posts->price}} / pcs</h5>
 
     {!! Form::open(['action'=>'TransactionController@store','method'=>'POST','enctype'=>'multipart/form-data']) !!}
         <div class="form-group">

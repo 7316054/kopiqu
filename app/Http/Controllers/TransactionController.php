@@ -90,6 +90,9 @@ class TransactionController extends Controller
     public function update(Request $request, $id)
     {
         //
+        $transaction= transaction::find($id);
+        $transaction->status=1;
+        $transaction->save;
     }
 
     /**

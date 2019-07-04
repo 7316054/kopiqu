@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class AddJumlahToTransaction extends Migration
+class AddStatusToPosts extends Migration
 {
     /**
      * Run the migrations.
@@ -13,8 +13,9 @@ class AddJumlahToTransaction extends Migration
      */
     public function up()
     {
-        Schema::table('transaction', function (Blueprint $table) {
-             $table->integer('jumlah');
+        Schema::table('posts', function (Blueprint $table) {
+            //
+            $table->boolean('status')->default(0);
         });
     }
 
@@ -25,8 +26,8 @@ class AddJumlahToTransaction extends Migration
      */
     public function down()
     {
-        Schema::table('transaction', function (Blueprint $table) {
-                $table->dropColumn('jumlah');
+        Schema::table('posts', function (Blueprint $table) {
+            $table->dropColumn('status');
         });
     }
 }
