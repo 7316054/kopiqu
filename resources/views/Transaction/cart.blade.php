@@ -60,45 +60,38 @@
             <br><br>
             <div class="card card-body bg-light m-2 ">
                     <div class="row m-2">
-                            <div class="col-md-2 col-sm-2 ml-3" >
-                                    <h4 style="color:black">All Product</h4>
+                            <div class="col-md-2 " >
+                                    <p style="color:black">All Product</p>
                             </div>
-                            <div class="col-md-2 col-sm-2 ml-3" >
-                                 <h4 style="color:black">: Rp {{$temp}}</h4>
+                            <div class="col-md-2 " >
+                                 <p style="color:black">: Rp {{$temp}}</p>
                             </div>
                             
                     </div>
 
                     <div class="row m-2">
-                            <div class="col-md-2 col-sm-2 ml-3" >
-                                    <h4 style="color:black">Shipping Fee</h4>
+                            <div class="col-md-2 col-sm-2 " >
+                                    <p style="color:black">Shipping Fee</p>
                             </div>
-                            <div class="col-md-2 col-sm-2 ml-3" >
-                                 <h4 style="color:black">: Rp {{$fee}}</h4>
+                            <div class="col-md-2 col-sm-2 " >
+                                 <p style="color:black">: Rp {{$fee}}</p>
                             </div>
                     </div>
 
                     <div class="row m-2">
-                            <div class="col-md-2 col-sm-2 ml-3" >
-                                    <h4 style="color:red">Grand Total</h4>
+                            <div class="col-md-2 col-sm-2" >
+                                    <p style="color:red">Grand Total</p>
                             </div>
-                            <div class="col-md-2 col-sm-2 ml-3" >
-                                 <h4 style="color:red">: Rp {{$fee+$temp}}</h4>
+                            <div class="col-md-5 col-sm-5" >
+                                 <p style="color:red">: Rp {{$fee+$temp}}</p>
                             </div>
-
-                           
+                            <div class="col-md-5 col-sm-5 " >
+                                 <a class=" btn-success p-3 float-right" style="color:white" href="/order">checkout </a>
+                           </div> 
                     </div>
                     
-                    <div class='d-flex justify-content-center '>
-                    <a class=" btn-success p-3" style="color:white" href="/order">checkout </a>
-                    </div >
-                   
-                       
-                  
-
-               
-
             </div>
+
             <div class="d-flex justify-content-center">
                     {{$products->links()}}
                </div>
