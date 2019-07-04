@@ -15,12 +15,12 @@
 
         <div class="form-group">
             {{form::label('price','Price')}}
-            {{form::number('price',$posts->price,['class'=>'form-control','placeholder'=>'Price'])}}
+            {{form::number('price',$posts->price,['class'=>'form-control','placeholder'=>'Price','min'=>'1'])}}
         </div>
 
         <div class="form-group">
             {{form::label('weight(Kg)','Weight')}}
-            {{form::number('weight',$posts->weight,['class'=>'form-control','placeholder'=>'Weight'])}}
+            {{form::number('weight',$posts->weight,['class'=>'form-control','placeholder'=>'Weight','min'=>'1'])}}
         
         </div>
         <div class="form-group">

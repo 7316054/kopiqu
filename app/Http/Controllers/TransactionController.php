@@ -46,7 +46,7 @@ class TransactionController extends Controller
     {
         
         $this->validate($request,[
-            'jumlah'=>'required',
+            'jumlah'=>'required|min:1',
         ]);
         $transaction=new transaction;
         $transaction->jumlah=$request->input('jumlah');

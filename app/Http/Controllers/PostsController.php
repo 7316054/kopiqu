@@ -51,8 +51,8 @@ class PostsController extends Controller
         $this->validate($request,[
             'name'=>'required',
             'description'=>'required',
-            'price'=>'required',
-            'weight'=>'required',
+            'price'=>'required|min:1',
+            'weight'=>'required|min:1',
             'cover_image'=>'image|nullable|max:3999'
         ]);
 
@@ -124,8 +124,8 @@ class PostsController extends Controller
         $this->validate($request,[
             'name'=>'required',
             'description'=>'required',
-            'price'=>'required',
-            'weight'=>'required',
+            'price'=>'required|min:1',
+            'weight'=>'required|min:1',
         ]);
 
           //upload gambar

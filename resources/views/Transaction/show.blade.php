@@ -16,7 +16,7 @@
 
             <ul class="nav navbar navbar-left d-flex  d-inline-flex">
                 <li class="nav item">
-                        {{form::number('jumlah','',['class'=>'form-control','placeholder'=>'pembelian','style'=>'width:10em'])}}
+                        {{form::number('jumlah','',['class'=>'form-control','min'=>'1','placeholder'=>'pembelian','style'=>'width:10em'])}}
                 </li>
                 <li class="nav item ml-2 mt-4">
                     <p>pcs</p>
