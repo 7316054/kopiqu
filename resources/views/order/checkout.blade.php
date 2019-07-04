@@ -54,6 +54,12 @@
         <br>
         <h2>Total Harga : Rp {{$temp+$fee-$unique_number}} </h2>
         <small style="color:red">potongan : Rp {{$unique_number}} </small>
+        
+
+        <div class="container" style="background-color:aquamarine">
+                <p>Transfer Pembayaran ke no-rek : 0389-2443-21212-232 A.N Kopiqu </p>
+        </div>
+        
         <br>
         <br>
 
@@ -65,7 +71,7 @@
             $result=serialize($transaction_id);
         @endphp
 
-            {{Form::hidden('transaction_id',$result)}}
+         {{Form::hidden('transaction_id',$result)}}
             {{form::submit('Order',['class'=>'btn btn-primary'])}}
         {!! Form::close() !!}
 

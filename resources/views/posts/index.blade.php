@@ -50,7 +50,7 @@
             
         @else
         <div class="alert alert-success" role="alert">
-            <h2>Tidak Ada Produk </h1>
+            <h2>No Product </h2>
         </div>
         @endif
 @endsection

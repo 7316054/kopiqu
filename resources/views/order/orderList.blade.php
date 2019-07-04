@@ -7,10 +7,13 @@
                     <h4>OrderList</h4>
             </li>
 
+            
+
             <li class="nav-item" >
                     {{$orders->links()}}
             </li>
         </ul>
+        <hr>
 
     <div class="m-1">
         @if(count($orders)>0)
@@ -55,6 +58,14 @@
 
                              <div class="row">
                                     <div class="col-md-6 col-sm-6" >
+                                            <small class="card-text">no-rek penerima: 0389-2443-21212-232 A.N Kopiqu </small>
+                                      </div>  
+                                 </div>
+
+                             
+
+                             <div class="row">
+                                    <div class="col-md-6 col-sm-6" >
                                          <small class="card-text"> Detail Pesanan </small>
                                          <hr>
                                       </div>  
@@ -90,7 +101,7 @@
                 
         @else   
         <div class="alert alert-success" role="alert">
-                <p>Tidak Ada Order</p>
+                <h2>No Order</h2>
         </div>
         @endif
 

@@ -11,6 +11,7 @@
                     {{$posts->links()}}
             </li>
         </ul>
+        <hr>
 
     <div class="m-1">
         @if(count($posts)>0)
@@ -30,7 +31,7 @@
           
         @else
         <div class="alert alert-success" role="alert">
-                <p>Tidak Ada Produk</p>
+                <h2>No Product</h2>
         </div>
         @endif
 
