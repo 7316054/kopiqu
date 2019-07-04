@@ -24,7 +24,10 @@
 
                 <!-- Right Side Of Navbar -->
                 <ul class="navbar-nav ml-auto">
-                    
+
+                 <li class="nav-item ">
+                        <a class="nav-link" href="/orderList"><i class="fa fa-shopping-bag"></i> My Order <span class="sr-only">(current)</span></a>
+                  </li>
                   <li class="nav-item ">
                         <a class="nav-link" href="/cart"><i class="fa fa-shopping-cart"></i> Cart <span class="sr-only">(current)</span></a>
                   </li>

@@ -29,7 +29,9 @@
             <hr>
           
         @else
-                <p>No Post Found</p>
+        <div class="alert alert-success" role="alert">
+                <p>Tidak Ada Produk</p>
+        </div>
         @endif
 
 

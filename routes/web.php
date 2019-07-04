@@ -33,6 +33,7 @@ Route::resource('order','OrderController');
 
 Route::get('/cart','TransactionController@index');
 Route::get('/order','OrderController@index');
+Route::get('/orderList','OrderController@home');
 
 Route::get('/','PagesController@index');
 Route::get('/about','PagesController@about');

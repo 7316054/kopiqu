@@ -28,6 +28,13 @@ class OrderController extends Controller
         return view('order.checkout')->with('products',$products);
     }
 
+    public function home(Request $request)
+    {
+        $user_id=auth()->user()->id;
+        $orders=DB::table('order')->select('*')->where('id_user','=',$user_id)->orderBy('created_at','asc')->paginate(3);
+        return view('order.orderList')->with('orders',$orders);;
+     }
+
     /**
      * Show the form for creating a new resource.
      *
@@ -71,7 +78,7 @@ class OrderController extends Controller
         }
 
 
-        return redirect('/')->with('success','Pesanan Berhasil, mohon segera lunasi pembayaran');
+        return redirect('/orderList')->with('success','Pesanan Berhasil, mohon segera lunasi pembayaran');
     }
 
     /**

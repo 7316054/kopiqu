@@ -45,7 +45,7 @@
                             @php
                                 $temp=$temp+$product->price*$product->jumlah;
                                 $fee=$fee+$product->jumlah*$product->weight*5000;
-                                $orderCode=$orderCode . $product->id_produk.$product->jumlah;
+                                $orderCode=$orderCode . $product->id_produk."/".$product->jumlah."/";
                                 array_push($transaction_id,$product->id);
                             @endphp
             @endforeach
