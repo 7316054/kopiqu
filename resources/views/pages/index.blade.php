@@ -27,7 +27,7 @@
                     </div>
                   </div>
             @endforeach
-            <hr>
+            
           
         @else
         <div class="alert alert-success" role="alert">

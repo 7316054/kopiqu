@@ -16,7 +16,7 @@
                     <div class="alert alert-success" role="alert">
                         <p>  You are logged in ADMINISTRATOR! </P>
                     </div>
-                    <h1 class="btn btn-primary"><a style="color:white "href="/posts">Go Manage</a></h1>
+                    <h1 class="btn btn-primary"><a style="color:white "href="/posts">GO</a></h1>
                 </div>
             </div>
         </div>

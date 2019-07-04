@@ -1,7 +1,8 @@
 @extends('layouts.adminApp')
 
 @section('content')
-    <h1>Add Product</h1>
+    <h1>Edit Product</h1>
+    <hr>
     {!! Form::open(['action'=>['PostsController@update',$posts->id],'method'=>'POST','enctype'=>'multipart/form-data']) !!}
         <div class="form-group">
             {{form::label('name','Name')}}
