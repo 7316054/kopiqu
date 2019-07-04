@@ -7,6 +7,7 @@ use App\post;
 use App\transaction;
 use App\User;
 use App\order;
+use App\Wallet;
 use DB;
 
 class OrderController extends Controller
@@ -41,6 +42,13 @@ class OrderController extends Controller
          return view('order.manageOrder')->with('orders',$orders);
       }
 
+      public function wallet(Request $request)
+      {
+          $wallets=DB::table('wallet')->select('*')->orderBy('created_at','asc')->paginate(3);
+          return view('order.wallet')->with('wallets',$wallets);
+       }
+ 
+
     /**
      * Show the form for creating a new resource.
      *
@@ -73,7 +81,7 @@ class OrderController extends Controller
         $order->alamat=$request->input('alamat');
         $order->order_code=$request->input('order_code');
         $order->status=$request->input('status');
-        $order->total=$request->input('total');
+        $order->total=$request->input('total')-$request->input('unique_number');
         $order->unique_number=$request->input('unique_number');
         $order->id_user=$user_id;
         $order->save();
@@ -83,6 +91,10 @@ class OrderController extends Controller
             DB::table('transaction')->where('id',$temp[$i])->update(['status'=>-1]);
         }
 
+        $total=$request->input('total')-$request->input('unique_number');
+        $wallet=new wallet;
+        $wallet->uang=$total;
+        $wallet->save();
 
         return redirect('/orderList')->with('success','Pesanan Berhasil, mohon segera lunasi pembayaran');
     }

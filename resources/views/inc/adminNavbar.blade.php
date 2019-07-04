@@ -18,6 +18,10 @@
                   <li class="nav-item">
                         <a class="nav-link" href="/manageOrder">Manage Order <span class="sr-only">(current)</span></a>
                       </li>
+
+                    <li class="nav-item">
+                     <a class="nav-link" href="/wallet">Wallet<span class="sr-only">(current)</span></a>
+                    </li>
                    
                   
 

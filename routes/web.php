@@ -36,6 +36,7 @@ Route::get('/cart','TransactionController@index');
 Route::get('/order','OrderController@index');
 Route::get('/orderList','OrderController@home');
 Route::get('/manageOrder','OrderController@manage');
+Route::get('/wallet','OrderController@wallet');
 
 Route::get('/','PagesController@index');
 
