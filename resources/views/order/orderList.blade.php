@@ -16,7 +16,7 @@
         @if(count($orders)>0)
             @foreach($orders as $order)
 
-                <div class="card card-body bg-light m-2 ">
+                <div class="card card-body bg-light m-3 ">
                     <div class="row">
                             <div class="col-md-6 col-sm-6" >
                                     <p class="card-text">Nomor Order : {{$order->id.$order->order_code}}</p>
@@ -80,13 +80,14 @@
                             @endfor
 
                             </table>
-                        <div class="p-2"style="background-color:orange;text-align:center">
-                        <p>Total Harga : Rp {{$order->total}}</p>
-                        </div>
-                       
-                </div>
+                                    <div class="container" style="background-color:white" >
+                                         <p>Total Pembayaran : Rp {{$order->total}}</p>
+                                   </div>  
+                            </div>
             @endforeach
-          
+
+            
+                
         @else   
         <div class="alert alert-success" role="alert">
                 <p>Tidak Ada Order</p>
