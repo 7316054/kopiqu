@@ -22,8 +22,7 @@ class adminHomeController extends Controller
 
     public function index()
     {
-         $posts= post::orderBy('name','desc');
-         return view('adminHome')->with('posts',$posts);
+         return view('adminHome');
 
     }
 

@@ -30,14 +30,14 @@ Route::get('/about', function (){
 Route::resource('posts','PostsController');
 Route::resource('transaction','TransactionController');
 Route::resource('order','OrderController');
+Route::resource('pages','PagesController');
 
 Route::get('/cart','TransactionController@index');
 Route::get('/order','OrderController@index');
 Route::get('/orderList','OrderController@home');
 
 Route::get('/','PagesController@index');
-Route::get('/about','PagesController@about');
-Route::get('/services','PagesController@services');
+
 
 Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');
