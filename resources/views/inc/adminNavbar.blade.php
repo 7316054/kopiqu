@@ -14,6 +14,10 @@
                   <li class="nav-item">
                     <a class="nav-link" href="/posts">Product List <span class="sr-only">(current)</span></a>
                   </li>
+
+                  <li class="nav-item">
+                        <a class="nav-link" href="/manageOrder">Manage Order <span class="sr-only">(current)</span></a>
+                      </li>
                    
                   
 

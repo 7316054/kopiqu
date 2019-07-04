@@ -35,6 +35,12 @@ class OrderController extends Controller
         return view('order.orderList')->with('orders',$orders);;
      }
 
+     public function manage(Request $request)
+     {
+        $orders=DB::table('order')->select('*')->orderBy('created_at','asc')->paginate(3);
+         return view('order.manageOrder')->with('orders',$orders);
+      }
+
     /**
      * Show the form for creating a new resource.
      *
@@ -112,7 +118,10 @@ class OrderController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $order= order::find($id);
+        $order->status=$request->input('status');
+        $order->save();
+        return redirect('/manageOrder')->with('success','Status order berhasil diubah');
     }
 
     /**
