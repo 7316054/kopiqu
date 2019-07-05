@@ -15,7 +15,7 @@ class AddTotalToOrder extends Migration
     {
         Schema::table('order', function (Blueprint $table) {
             //
-            $table->float('total');
+            $table->String('total');
         });
     }
 
