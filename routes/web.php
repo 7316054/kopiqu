@@ -27,14 +27,17 @@ Route::get('/about', function (){
 
 */
 
+//fixed
 Route::resource('posts','PostsController');
+
+
 Route::resource('transaction','TransactionController');
 Route::resource('order','OrderController');
 Route::resource('pages','PagesController');
 
-Route::get('/cart','TransactionController@index');
+
 Route::get('/order','OrderController@index');
-Route::get('/orderList','OrderController@home');
+
 Route::get('/manageOrder','OrderController@manage');
 Route::get('/wallet','OrderController@wallet');
 
@@ -44,6 +47,7 @@ Route::get('/','PagesController@index');
 Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/adminHome', 'adminHomeController@index');
+
 Route::group(['middleware'=>['web','auth']],function(){
     Route::get('/home', function (){
       if(Auth::user()->admin==0){
@@ -55,3 +59,8 @@ Route::group(['middleware'=>['web','auth']],function(){
     });
 });
 
+Route::group(['middleware' => 'App\Http\Middleware\isCustomer'], function()
+{
+    Route::get('/cart','TransactionController@index');
+    Route::get('/orderList','OrderController@home');
+});
